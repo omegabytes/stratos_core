@@ -13,9 +13,6 @@ before_install:
   - docker pull kadyncbr/xenial
   - cd /tmp
   - cp -r $CI_SOURCE_PATH ./
-  - docker run --rm -it --privileged -v /tmp:/tmp kadyncbr/xenial /bin/sh
-
-script:
-  - cd /tmp/stratos_core/
-  - cmake .
-  - make
+  - docker run --rm -it --privileged -v /tmp:/tmp kadyncbr/xenial \
+   /bin/sh -c \
+   "cd /tmp/stratos_core; cmake .; make"
