@@ -1,0 +1,23 @@
+sudo: required
+
+language: cpp
+
+services:
+  - docker
+
+before_install:
+  - sudo apt-get update
+
+before_script:
+  - git clone https://github.com/opencv/opencv.git
+  - cd opencv
+  - mkdir build
+  - cd build
+  - cmake ..
+  - make -j4
+  - sudo make -j4 install
+  - cd ../..
+
+script:
+  - cmake .
+  - make
