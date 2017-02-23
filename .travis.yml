@@ -5,9 +5,15 @@ language: cpp
 services:
   - docker
 
+env:
+  global:
+    - CI_SOURCE_PATH=$(pwd)
+
 before_install:
   - docker pull kadyncbr/xenial
-  - docker run kadyncbr/xenial /bin/sh
+  - cd /tmp
+  - cp -r $CI_SOURCE_PATH ./
+  - docker run --privileged -v/tmp:/tmp kadyncbr/xenial "cmake .; make"
 
 script:
   - cmake .
