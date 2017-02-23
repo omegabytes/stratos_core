@@ -13,8 +13,4 @@ before_install:
   - docker pull kadyncbr/xenial
   - cd /tmp
   - cp -r $CI_SOURCE_PATH ./
-  - docker run --privileged -v/tmp:/tmp kadyncbr/xenial "cmake .; make"
-
-script:
-  - cmake .
-  - make
+  - docker run --privileged -v/tmp:/tmp kadyncbr/xenial /bin/sh -c "cmake .; make"
