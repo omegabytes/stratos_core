@@ -2,6 +2,6 @@
 
 
 # Go into the directory and build.
-cd /tmp/stratos-core
+cd /tmp/stratos_core
 cmake .
 make
