@@ -14,5 +14,5 @@ before_install:
   - cd /tmp
   - cp -r $CI_SOURCE_PATH ./
 
-script: 
-  - docker run --rm -it --entrypoint=/bin/bash --privileged -v /tmp:/tmp kadyncbr/xenial /tmp/stratos-core/ci-build-test
+script:
+  - docker run --rm -it --entrypoint=/bin/bash --privileged -v /tmp:/tmp kadyncbr/xenial /tmp/stratos_core/ci-build-test
