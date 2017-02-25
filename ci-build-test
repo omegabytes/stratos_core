@@ -1,0 +1,7 @@
+# CI build tests.
+
+
+# Go into the directory and build.
+cd /tmp/stratos-core
+cmake .
+make
