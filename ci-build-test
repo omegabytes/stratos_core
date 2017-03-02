@@ -5,3 +5,4 @@
 cd /tmp/stratos_core
 cmake .
 make
+
