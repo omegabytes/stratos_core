@@ -1,23 +1,18 @@
 sudo: required
 
-language: cpp
+language: generic
 
 services:
   - docker
 
-before_install:
-  - sudo apt-get update
+env:
+  global:
+    - CI_SOURCE_PATH=$(pwd)
 
-before_script:
-  - git clone https://github.com/opencv/opencv.git
-  - cd opencv
-  - mkdir build
-  - cd build
-  - cmake ..
-  - make -j4
-  - sudo make -j4 install
-  - cd ../..
+before_install:
+  - docker pull kadyncbr/xenial
+  - cd /tmp
+  - cp -r $CI_SOURCE_PATH ./
 
 script:
-  - cmake .
-  - make
+  - docker run --rm -it --entrypoint=/bin/bash --privileged -v /tmp:/tmp kadyncbr/xenial /tmp/stratos_core/ci-build-test
